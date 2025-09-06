@@ -36,5 +36,5 @@ This avoids copying unnecessary app data (like `.obb` or cache files) and keeps 
 2. Run the script by double-clicking:
 
    ```bat
-   extract_extended.bat
+   Data Extractor.bat
 
