@@ -17,26 +17,26 @@ adb shell "find /sdcard/ -path '/sdcard/Android/data' -prune -o -path '/sdcard/A
 adb shell "find /sdcard/ -path '/sdcard/Android/data' -prune -o -path '/sdcard/Android/obb' -prune -o \( -type f \( -iname '*.zip' -o -iname '*.rar' -o -iname '*.7z' -o -iname '*.tar' -o -iname '*.gz' -o -iname '*.apk' \) \) -print" > archive_list.txt
 
 echo === Creating destination folders on PC ===
-mkdir "D:\Phone\Seperated\Photos"   2>nul
-mkdir "D:\Phone\Seperated\Videos"   2>nul
-mkdir "D:\Phone\Seperated\Docs"     2>nul
-mkdir "D:\Phone\Seperated\Audio"    2>nul
-mkdir "D:\Phone\Seperated\Archives" 2>nul
+mkdir "D:\Phone\Photos"   2>nul
+mkdir "D:\Phone\Videos"   2>nul
+mkdir "D:\Phone\Docs"     2>nul
+mkdir "D:\Phone\Audio"    2>nul
+mkdir "D:\Phone\Archives" 2>nul
 
 echo === Pulling IMAGES ===
-for /F "usebackq delims=" %%i in (img_list.txt) do adb pull "%%i" "D:\Phone\Seperated\Photos" 2>nul
+for /F "usebackq delims=" %%i in (img_list.txt) do adb pull "%%i" "D:\Phone\Photos" 2>nul
 
 echo === Pulling VIDEOS ===
-for /F "usebackq delims=" %%i in (vid_list.txt) do adb pull "%%i" "D:\Phone\Seperated\Videos" 2>nul
+for /F "usebackq delims=" %%i in (vid_list.txt) do adb pull "%%i" "D:\Phone\Videos" 2>nul
 
 echo === Pulling DOCUMENTS ===
-for /F "usebackq delims=" %%i in (doc_list.txt) do adb pull "%%i" "D:\Phone\Seperated\Docs" 2>nul
+for /F "usebackq delims=" %%i in (doc_list.txt) do adb pull "%%i" "D:\Phone\Docs" 2>nul
 
 echo === Pulling AUDIO ===
-for /F "usebackq delims=" %%i in (audio_list.txt) do adb pull "%%i" "D:\Phone\Seperated\Audio" 2>nul
+for /F "usebackq delims=" %%i in (audio_list.txt) do adb pull "%%i" "D:\Phone\Audio" 2>nul
 
 echo === Pulling ARCHIVES / INSTALLERS ===
-for /F "usebackq delims=" %%i in (archive_list.txt) do adb pull "%%i" "D:\Phone\Seperated\Archives" 2>nul
+for /F "usebackq delims=" %%i in (archive_list.txt) do adb pull "%%i" "D:\Phone\Archives" 2>nul
 
-echo === Done! All files have been pulled to D:\Phone\Seperated ===
+echo === Done! All files have been pulled to D:\Phone ===
 pause
